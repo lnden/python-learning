@@ -232,8 +232,19 @@ L = ['Michael', 'Sarah', 'Tracy', 'Bob', 'Jack']
 
     L[:]    //  复制整个list
 
+- 迭代 如果给定一个 list 或 tuple ，我们可以通过for循环来遍历这个list或tuple，这种遍历我们称为迭代
 
-
+    1). for循环
+```
+d = {'a':1, 'b':2, 'c':3}
+for key in d:
+    print(key)
+```
+    2). 迭代value
+```
+for value in d.values():
+    print(value)
+```
 
 
 
