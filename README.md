@@ -66,30 +66,121 @@
 
     python的循环有两种，一种是for...in循环，依次把list或tuple中的每一个元素迭代出来
 
+- dict 字典dictionary  类似其他语言的map
+
+    d = {'Michael': 95,'Bob': 75,'Tracy': 85}
+
+    判断key是否存在，有两种办法
+
+        1).通过 in 判断key是否存在  'Thomas' in d   // False
+        2).通过 get() 方法， 如果key不存在，可以返回None   d.get('Thomas')  // None
+
+    d.pop('Bob')    //  75
 
 
+和list比较，dict有以下几个特点：
+
+&emsp;&emsp;1).查找和插入的速度极快，不会随着key的增加而变慢；
+
+&emsp;&emsp;2).需要占用大量的内存，内存浪费多。
+
+而list相反：
+
+&emsp;&emsp;1).查找和插入的时间随着元素的增加而增加；
+
+&emsp;&emsp;2).占用空间小，浪费内存很少。
 
 
+- set 类似dict 也是一组key的集合，但不存储value。由于key不能重复，所以，在set中，没有重复的key
+
+    s = set([1, 1, 2, 2, 3, 4])  //  {1, 2, 3}
+
+    1). add(key) 可以添加元素到set中，可以重复添加，但不会有效果
+
+    2). remove(key) 可以删除元素
+
+    3). 可以看成数学意义上的无序和无重复元素的集合
+
+        s1 = set([1, 2, 3])
+        s2 = set([2, 3, 4])
+        s1 & s2     //  {2, 3}
+        s1 | s2     //  {1, 2, 3, 4}
 
 
+## 函数
+
+    Python不但能非常灵活地定义函数，而且本身内置了很多有用的函数，可以直接调用。
+
+    将重复的代码封装到一个函数里面，每次调用函数生成对应的值，不用每次都求 S = πr2
+
+- 使用函数
+
+    1). abs() 求绝对值函数
+
+    2). max() 求最大值函数
+
+    3). hex() 整数转换成十六进制表示的字符串
+
+    4). 数据类型转换
+
+```
+int('123')  //  123
+
+int(12.34)  //  12
+
+float('12.34')  //  12.34
+
+str(1.23)   //  '1.23'
+
+bool(1)     //  True
+
+bool('')    //  False
+```
+    5). 函数名其实就是指向一个函数对象的引用，完全可以吧函数名赋给一个变量，相当于给这个函数起了一个"别名"
+
+    a = abs    a(-1)    //  1
+
+- 定义函数
+
+    在python中，定义一个函数要使用def语句，一次写出函数名、括号、括号中的参数和冒号`：`，然后，在锁紧块中编写函数体，函数的返回值用return 语句返回
+
+```
+def my_abs(x):
+    if x >=0:
+        return x
+    else:
+        return -x
+```
 
 
+    1).空函数 pass 实际上就是起到占位符的作用，空函数减少pass会报错
 
+```
+age = 20
+if age >= 18:
+    pass
+```
 
+    2).参数检查 my_abs 和内置函数abs 是有区别的  my_abs('A') / abs('A') 报错信息
 
+```
+def my_abs(x):
+    if not isinstance(x,(int,float)):
+        raise TypeError('bad operand type')
+    if x >= 0:
+        return x
+    else:
+        return -x
+```
 
-
-
-
-
-
-
-
-
-
-
-
-
+    3).返回多个值
+```
+import math
+def move(x,y,step,angle=0):
+    nx = x + step * match.cos(angle)
+    ny = y - step * match.sin(angle)
+    return nx,ny
+```
 
 
 
