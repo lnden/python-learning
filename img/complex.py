@@ -1,17 +1,17 @@
 from turtle import *
 
-# 设置色彩模式是RGB:
+# 设置色彩模式是RGB
 colormode(255)
 
 lt(90)
 
 lv = 14
 l = 120
-s = 45
+s=45
 
 width(lv)
 
-# 初始化RGB颜色:
+# 初始化RGB颜色
 r = 0
 g = 0
 b = 0
@@ -22,12 +22,11 @@ bk(l)
 pendown()
 fd(l)
 
-def draw_tree(l, level):
+def draw_tree(l,level):
     global r, g, b
     # save the current pen width
     w = width()
-
-    # narrow the pen width
+     # narrow the pen width
     width(w * 3.0 / 4.0)
     # set color:
     r = r + 1
